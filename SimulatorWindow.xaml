@@ -1,0 +1,45 @@
+﻿<Window x:Class="Business.WorkflowDebugger.SimulatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Business.WorkflowDebugger"
+        Title="Desiner------" Height="700" Width="900" WindowState="Maximized">
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="59" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <local:WorkflowDesignerHost x:Name="WFHost" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Loaded="WFHost_Loaded"/>
+            <StatusBar Name="workflowStatusBar" Grid.Row="2" Height="25" VerticalAlignment="Bottom" Grid.Column="1" HorizontalContentAlignment="Stretch" Margin="0" />
+        </Grid>
+        <ToolBar HorizontalAlignment="Left" Height="58" VerticalAlignment="Center" Width="1076">
+            <Button Content="Save/Export" Background="#FFA9BFD9" Height="35" Width="100" Click="btnSaveWorkflow_Click" />
+            <Button Content="Open" Height="35" Background="#FFA9BFD9" Width="100" Click="btnOpenWorkflow_Click"/>
+            <Button Content="Run" Height="35" Width="100" Background="#FFCE9595" Click="btnFastRunWorkflow_Click" />
+            <Button Content="Stop" Height="35" Width="100" Background="#FFCE9595"/>
+            <Button Content="New" Height="35" Width="100" Background="#FF86B246" Click="btnNewWorkflow_Click" />
+            <Button Content="Depug" Height="35" Width="100"  Background="#FFEECA3D" Click="btnRunLoadedWorkflow_Click"/>
+            <Button Height="35" Width="40"  Background="#FFEECA3D" Content="S" Click="btnStopDep_Click" >
+
+            </Button>
+            <Button Height="35" Width="40"  Background="#FFEECA3D" Content="B" Click="btnBreakpointToggle_Click" >
+
+            </Button>
+            <Button Height="35" Width="40"  Background="#FFEECA3D" Content="C" Click="btnContinue_Click" >
+
+            </Button>
+            <Button Content="UNDO" Height="35" Width="60" HorizontalAlignment="Left" Background="#FFAC9090" />
+            <Button Content="REDO" Height="35" Width="60" Background="#FFAC9090" />
+        </ToolBar>
+        <!--<GridSplitter Grid.Column="0" Grid.Row="1" Margin="0" Name="gridSplitter" Width="10" MinWidth="10" ShowsPreview="False" ResizeDirection="Auto" Panel.ZIndex="0" BorderThickness="2" Foreground="Transparent" BorderBrush="DarkGray" Opacity="1" Background="LightGray" />-->
+    </Grid>
+</Window>
